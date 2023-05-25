@@ -1,7 +1,8 @@
-import LoginComponent from "./page/LoginForm";
+// import LoginPage from "./page/LoginPage";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  return <LoginComponent />;
+  return ;
 }
 
 export default App;
