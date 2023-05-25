@@ -23,4 +23,21 @@ async function loginHandler(e, credentials) {
   }
 }
 
-export default loginHandler;
+async function registerHandler(e, credentials) {
+  e.preventDefault();
+  const options = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: credentials.username,
+      password: credentials.password,
+    }),
+  };
+
+  const res = await fetch("http://127.0.0.1:3000/auth/register", options);
+}
+
+export default { loginHandler, registerHandler };

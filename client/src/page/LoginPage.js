@@ -22,51 +22,49 @@ function LoginPage() {
   };
 
   return (
-    <>
-      <section className="login-wrapper">
-        <form data-testid="login-form" className="login-form">
-          <div className="login-header">
-            <h2 className="login-heading">Login</h2>
-          </div>
-          <div className="login-field-container">
-            <label>Username</label>
-            <input
-              type="text"
-              placeholder="Insert username..."
-              data-testid="username-field"
-              name="username"
-              onChange={(e) =>
-                setCredentials({ ...credentials, username: e.target.value })
-              }
-            />
-          </div>
-          <div className="login-field-container">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Insert password..."
-              data-testid="password-field"
-              name="password"
-              onChange={(e) =>
-                setCredentials({ ...credentials, password: e.target.value })
-              }
-            />
-          </div>
+    <section className="login-wrapper">
+      <form data-testid="login-form" className="login-form">
+        <div className="login-header">
+          <h2 className="login-heading">Login</h2>
+        </div>
+        <div className="login-field-container">
+          <label>Username</label>
+          <input
+            type="text"
+            placeholder="Insert username..."
+            data-testid="username-field"
+            name="username"
+            onChange={(e) =>
+              setCredentials({ ...credentials, username: e.target.value })
+            }
+          />
+        </div>
+        <div className="login-field-container">
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Insert password..."
+            data-testid="password-field"
+            name="password"
+            onChange={(e) =>
+              setCredentials({ ...credentials, password: e.target.value })
+            }
+          />
+        </div>
 
-          {loginMessage && <p className="login-message">{loginMessage}</p>}
+        {loginMessage && <p className="login-message">{loginMessage}</p>}
 
-          <p>
-            No account yet? Sing up <Link to="register">here!</Link>
-          </p>
-          <button data-testid="login-btn" type="submit" onClick={submitHandler}>
-            Sign In
-          </button>
-          <Link to="books">
-            <button data-testid="guest-btn">Proceed as guest user</button>
-          </Link>
-        </form>
-      </section>
-    </>
+        <p>
+          No account yet? Sing up <Link to="register">here!</Link>
+        </p>
+        <button data-testid="login-btn" type="submit" onClick={submitHandler}>
+          Sign In
+        </button>
+        <Link to="books">
+          <button data-testid="guest-btn">Proceed as guest user</button>
+        </Link>
+      </form>
+    </section>
   );
 }
 

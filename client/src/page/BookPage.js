@@ -1,4 +1,4 @@
-function Books() {
+function BookPage() {
   return (
     <section className="books-section">
       <h2>Books</h2>
@@ -6,4 +6,4 @@ function Books() {
   );
 }
 
-export default Books;
+export default BookPage;
