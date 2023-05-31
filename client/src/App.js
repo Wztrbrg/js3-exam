@@ -8,7 +8,7 @@ function App() {
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
-          <Route index element={<LoginPage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="books" element={<BookPage />} />
         </Routes>

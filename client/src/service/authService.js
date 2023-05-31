@@ -38,6 +38,12 @@ async function registerHandler(e, credentials) {
   };
 
   const res = await fetch("http://127.0.0.1:3000/auth/register", options);
+
+  if (res.status === 201) {
+    return true;
+  } else {
+    return await res.text();
+  }
 }
 
 export default { loginHandler, registerHandler };

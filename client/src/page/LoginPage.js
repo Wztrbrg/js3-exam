@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import loginHandler from "../service/authService";
+import authService from "../service/authService";
 
 function LoginPage() {
   const [credentials, setCredentials] = useState({
@@ -12,7 +11,7 @@ function LoginPage() {
   const [loginMessage, setLoginMessage] = useState("");
 
   const submitHandler = async (e) => {
-    const result = await loginHandler(e, credentials);
+    const result = await authService.loginHandler(e, credentials);
     if (result === true) {
       setTimeout(() => navigate("/books"), 1000);
       setLoginMessage("Logged in successfully!");
@@ -51,11 +50,9 @@ function LoginPage() {
             }
           />
         </div>
-
         {loginMessage && <p className="login-message">{loginMessage}</p>}
-
         <p>
-          No account yet? Sing up <Link to="register">here!</Link>
+          No account yet? Sing up <Link to="/register">here!</Link>
         </p>
         <button data-testid="login-btn" type="submit" onClick={submitHandler}>
           Sign In

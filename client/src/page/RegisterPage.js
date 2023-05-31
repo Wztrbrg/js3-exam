@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import loginHandler from "../service/authService";
+import authService from "../service/authService";
 
 function RegisterPage() {
   const [credentials, setCredentials] = useState({
@@ -9,25 +9,26 @@ function RegisterPage() {
     password: "",
   });
   const navigate = useNavigate();
-  const [loginMessage, setLoginMessage] = useState("");
+  const [registerMessage, setRegisterMessage] = useState("");
 
   const submitHandler = async (e) => {
-    const result = await loginHandler(e, credentials);
+    const result = await authService.registerHandler(e, credentials);
+
     if (result === true) {
-      setTimeout(() => navigate("/books"), 1000);
-      setLoginMessage("Logged in successfully!");
+      setTimeout(() => navigate("/login"), 1000);
+      setRegisterMessage("Account successfully created!");
     } else {
-      setLoginMessage(result);
+      setRegisterMessage(result);
     }
   };
 
   return (
-    <section className="login-wrapper">
-      <form data-testid="login-form" className="login-form">
-        <div className="login-header">
-          <h2 className="login-heading">Login</h2>
+    <section className="register-wrapper">
+      <form data-testid="register-form" className="register-form">
+        <div className="register-header">
+          <h2 className="register-heading">Register</h2>
         </div>
-        <div className="login-field-container">
+        <div className="register-field-container">
           <label>Username</label>
           <input
             type="text"
@@ -39,7 +40,7 @@ function RegisterPage() {
             }
           />
         </div>
-        <div className="login-field-container">
+        <div className="register-field-container">
           <label>Password</label>
           <input
             type="password"
@@ -52,16 +53,18 @@ function RegisterPage() {
           />
         </div>
 
-        {loginMessage && <p className="login-message">{loginMessage}</p>}
+        {registerMessage && (
+          <p className="register-message">{registerMessage}</p>
+        )}
 
         <p>
-          Already have an account? Sing in <Link to="..">here!</Link>
+          Already have an account? Sing in <Link to="/login">here!</Link>
         </p>
         <button
           data-testid="register-btn"
           type="submit"
           onClick={submitHandler}>
-          Sign In
+          Register
         </button>
       </form>
     </section>
