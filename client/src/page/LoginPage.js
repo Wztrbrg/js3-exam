@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../service/authService";
+import "../style/loginPage.css";
 
 function LoginPage() {
   const [credentials, setCredentials] = useState({
@@ -21,47 +22,63 @@ function LoginPage() {
   };
 
   return (
-    <section className="login-wrapper">
-      <form data-testid="login-form" className="login-form">
-        <div className="login-header">
-          <h2 className="login-heading">Login</h2>
-        </div>
-        <div className="login-field-container">
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder="Insert username..."
-            data-testid="username-field"
-            name="username"
-            onChange={(e) =>
-              setCredentials({ ...credentials, username: e.target.value })
-            }
-          />
-        </div>
-        <div className="login-field-container">
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Insert password..."
-            data-testid="password-field"
-            name="password"
-            onChange={(e) =>
-              setCredentials({ ...credentials, password: e.target.value })
-            }
-          />
-        </div>
-        {loginMessage && <p className="login-message">{loginMessage}</p>}
-        <p>
-          No account yet? Sing up <Link to="/register">here!</Link>
-        </p>
-        <button data-testid="login-btn" type="submit" onClick={submitHandler}>
-          Sign In
-        </button>
-        <Link to="books">
-          <button data-testid="guest-btn">Proceed as guest user</button>
-        </Link>
-      </form>
-    </section>
+    <>
+      <header className="login-page-header">
+        <h1 className="login-page-heading">Booksters website</h1>
+      </header>
+      <section className="login-wrapper">
+        <form
+          data-testid="login-form"
+          className="login-form"
+          autoComplete="off">
+          <section className="login-header">
+            <h2 className="login-heading">Login</h2>
+          </section>
+          <section className="login-field-container">
+            <label>Username</label>
+            <input
+              autoComplete="off"
+              type="text"
+              placeholder="Insert username..."
+              data-testid="username-field"
+              name="username"
+              onChange={(e) =>
+                setCredentials({ ...credentials, username: e.target.value })
+              }
+            />
+          </section>
+          <section className="login-field-container">
+            <label>Password</label>
+            <input
+              autoComplete="off"
+              type="password"
+              placeholder="Insert password..."
+              data-testid="password-field"
+              name="password"
+              onChange={(e) =>
+                setCredentials({ ...credentials, password: e.target.value })
+              }
+            />
+          </section>
+          {loginMessage && <p className="login-message">{loginMessage}</p>}
+          <p className="register-para">
+            No account yet? Sing up <Link to="/register">here!</Link>
+          </p>
+          <section className="btn-container">
+            <button
+              data-testid="login-btn"
+              classname="login-btn"
+              type="submit"
+              onClick={submitHandler}>
+              Sign In
+            </button>
+            <Link to="books" data-testid="guest-btn" className="guest-btn">
+              Proceed as guest user
+            </Link>
+          </section>
+        </form>
+      </section>
+    </>
   );
 }
 

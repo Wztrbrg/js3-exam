@@ -1,3 +1,26 @@
+async function registerHandler(e, credentials) {
+  e.preventDefault();
+  const options = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: credentials.username,
+      password: credentials.password,
+    }),
+  };
+
+  const res = await fetch("http://127.0.0.1:3000/auth/register", options);
+
+  if (res.status === 201) {
+    return true;
+  } else {
+    return await res.text();
+  }
+}
+
 async function loginHandler(e, credentials) {
   e.preventDefault();
   const options = {
@@ -23,27 +46,21 @@ async function loginHandler(e, credentials) {
   }
 }
 
-async function registerHandler(e, credentials) {
-  e.preventDefault();
+async function fetchUser() {
   const options = {
-    method: "POST",
+    method: "GET",
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Authorization: "Bearer " + sessionStorage.getItem("JWT_TOKEN"),
     },
-    body: JSON.stringify({
-      username: credentials.username,
-      password: credentials.password,
-    }),
   };
 
-  const res = await fetch("http://127.0.0.1:3000/auth/register", options);
+  let result = await fetch("http://127.0.0.1:3000/library/profile", options);
 
-  if (res.status === 201) {
-    return true;
-  } else {
-    return await res.text();
+  if (result.status === 200) {
+    result = await result.json();
+    return result.user;
   }
 }
 
-export default { loginHandler, registerHandler };
+const authService = { loginHandler, registerHandler, fetchUser };
+export default authService;

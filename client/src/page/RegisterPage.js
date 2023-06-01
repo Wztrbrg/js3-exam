@@ -15,7 +15,7 @@ function RegisterPage() {
     const result = await authService.registerHandler(e, credentials);
 
     if (result === true) {
-      setTimeout(() => navigate("/login"), 1000);
+      setTimeout(() => navigate(-1), 1000);
       setRegisterMessage("Account successfully created!");
     } else {
       setRegisterMessage(result);
@@ -58,7 +58,7 @@ function RegisterPage() {
         )}
 
         <p>
-          Already have an account? Sing in <Link to="/login">here!</Link>
+          Already have an account? Sing in <Link to="/">here!</Link>
         </p>
         <button
           data-testid="register-btn"
