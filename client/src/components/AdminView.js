@@ -106,6 +106,7 @@ function AdminView() {
               Books
             </button>
             <button
+              data-testid="users-btn"
               onClick={() => viewHandler("users")}
               className={curView === "users" ? "active" : ""}>
               Users
@@ -115,6 +116,7 @@ function AdminView() {
       </header>
       {showModal && (
         <Modal
+          data-testid="modal"
           action={action}
           item={query}
           hideModal={hideModal}
@@ -158,13 +160,13 @@ function AdminView() {
                               type="number"
                               name="amount"
                               ref={ref}
-                              className="no-stock"
+                              className="order-input no-stock"
                               min="0"
                               max="20"
                               disabled
                             />
                             <button
-                              className="no-stock"
+                              className="order-btn no-stock"
                               disabled
                               onClick={() =>
                                 order(book.title, ref.current.value)
@@ -174,13 +176,14 @@ function AdminView() {
                           </td>
                           <td>
                             <button
+                              data-testid="edit-btn"
                               onClick={() => toggleModal("edit book", book)}
                               className="action-btn">
                               Edit
                             </button>
                             <button
                               onClick={() => toggleModal("delete book", book)}
-                              className="action-btn">
+                              className="action-btn delete">
                               Delete
                             </button>
                           </td>
@@ -190,6 +193,7 @@ function AdminView() {
                         <>
                           <td>
                             <input
+                              className="order-input"
                               type="number"
                               name="amount"
                               ref={ref}
@@ -197,6 +201,7 @@ function AdminView() {
                               max="20"
                             />
                             <button
+                              className="order-btn"
                               onClick={() =>
                                 orderHandler(book.title, ref.current.value)
                               }>
@@ -211,7 +216,7 @@ function AdminView() {
                             </button>
                             <button
                               onClick={() => toggleModal("delete book", book)}
-                              className="action-btn">
+                              className="action-btn delete">
                               Delete
                             </button>
                           </td>
@@ -226,7 +231,7 @@ function AdminView() {
         )}
 
         {curView === "users" && (
-          <table className="user-table">
+          <table className="user-table" data-testid="users-table">
             <thead>
               <tr>
                 <th>Username</th>
@@ -247,12 +252,12 @@ function AdminView() {
                     <td>
                       <button
                         onClick={() => toggleModal("promote user", user)}
-                        className="action-btn">
+                        className="order-btn">
                         Promote
                       </button>
                       <button
                         onClick={() => toggleModal("delete user", user)}
-                        className="action-btn">
+                        className="action-btn delete">
                         Delete
                       </button>
                     </td>

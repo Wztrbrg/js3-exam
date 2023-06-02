@@ -1,0 +1,98 @@
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #24245aad;
+    backdrop-filter: blur(3px);
+}
+
+.modal {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #21374e;
+    margin-bottom: 48px;
+    margin-top: 24px;
+    margin-left: 10%;
+    align-self: flex-start;
+}
+
+.modal p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.input-container {
+    width: 80%;
+    margin-bottom: 24px;
+}
+
+.input-container input {
+    width: 100%;
+    padding-bottom: 8px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #232323;
+}
+
+.input-container input:focus {
+    outline: none;
+}
+
+.input-container p {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.btn-container {
+    width: 80%;
+    margin-bottom: 36px;
+    margin-top: 24px;
+}
+
+.btn-container button {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 200px;
+    background-color: #21374e;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+}
+
+.btn-container button:hover {
+    cursor: pointer;
+    background-color: #4682c1;
+    transition: .3s;
+}
+
+.btn-container button.cancel {
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #232323;
+    background-color: #fff;
+    color: #232323;
+    font-weight: 600;
+}
+
+.btn-container button.cancel:hover {
+    box-shadow: 0 10px 10px #a1a1a15d;
+    transition: .3s;
+}

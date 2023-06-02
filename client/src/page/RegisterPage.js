@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../service/authService";
 import "../style/registerPage.css";
 
-
 /*
 Registreringssida, om man registrerar sig navigeras man tillbaka till LoginPage där man sedan 
 kan logga in med sina uppgifter
@@ -24,7 +23,7 @@ function RegisterPage() {
       setTimeout(() => navigate(-1), 1000);
       setRegisterMessage("Account successfully created!");
     } else {
-      setRegisterMessage(result);
+      setRegisterMessage("Username taken, try again");
     }
   };
 

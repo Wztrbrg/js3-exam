@@ -22,7 +22,7 @@ function LoginPage() {
       setTimeout(() => navigate("/books"), 1000);
       setLoginMessage("Logged in successfully!");
     } else {
-      setLoginMessage(result);
+      setLoginMessage("Invalid username and/or password");
     }
   };
 

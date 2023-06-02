@@ -6,6 +6,7 @@ import {
   editBook,
   addBook,
 } from "../service/adminService";
+import "../style/modal.css";
 
 /*
 Modal/Pop-up fönster som används vid ändring av böcker/användare
@@ -49,63 +50,62 @@ function Modal({ action, item, hideModal, refreshAll }) {
         action === "delete user" ||
         action === "promote user") && (
         <>
-          <div className="modal-bg"></div>
-          <div className="delete-modal">
-            <h2>{action.charAt(0).toUpperCase() + action.slice(1)}</h2>
-            <p>
-              Are you sure you wish to {action} {item?.title || item.username}?
-            </p>
+          <div className="bg-overlay">
+            <div className="modal">
+              <h2>{action.charAt(0).toUpperCase() + action.slice(1)}</h2>
+              <p>
+                Are you sure you wish to {action} {item?.title || item.username}
+                ?
+              </p>
 
-            <div className="btn-wrapper">
-              <button onClick={performAction} className="proceed">
-                Proceed
-              </button>
-              <button onClick={hideModal}>Cancel</button>
+              <div className="btn-container">
+                <button onClick={performAction}>Proceed</button>
+                <button onClick={hideModal} className="cancel">
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
         </>
       )}
       {(action === "edit book" || action === "add book") && (
         <>
-          <div className="modal-bg"></div>
-          <div className="delete-modal">
-            <h2>{action.charAt(0).toUpperCase() + action.slice(1)}</h2>
-
-            <div className="input-wrapper">
-              <p>Title - {item?.title}</p>
-              <input
-                type="text"
-                name=""
-                placeholder="Insert new title..."
-                onChange={(e) => setTitleField(e.target.value)}
-              />
-            </div>
-
-            <div className="input-wrapper">
-              <p>Author - {item?.author}</p>
-              <input
-                type="text"
-                name=""
-                placeholder="Insert new author..."
-                onChange={(e) => setAuthorField(e.target.value)}
-              />
-            </div>
-
-            <div className="input-wrapper">
-              <p>Quantity - {item?.quantity}</p>
-              <input
-                type="text"
-                name=""
-                placeholder="Insert new quantity..."
-                onChange={(e) => setQuantityField(e.target.value)}
-              />
-            </div>
-
-            <div className="btn-wrapper">
-              <button onClick={performAction} className="proceed">
-                Save changes
-              </button>
-              <button onClick={hideModal}>Discard changes</button>
+          <div className="bg-overlay">
+            <div className="modal">
+              <h2>{action.charAt(0).toUpperCase() + action.slice(1)}</h2>
+              <div className="input-container">
+                <p>Title - {item?.title}</p>
+                <input
+                  type="text"
+                  name=""
+                  placeholder="Insert new title..."
+                  onChange={(e) => setTitleField(e.target.value)}
+                />
+              </div>
+              <div className="input-container">
+                <p>Author - {item?.author}</p>
+                <input
+                  type="text"
+                  name=""
+                  placeholder="Insert new author..."
+                  onChange={(e) => setAuthorField(e.target.value)}
+                />
+              </div>
+              <div className="input-container">
+                <p>Quantity - {item?.quantity}</p>
+                <input
+                  type="text"
+                  name=""
+                  placeholder="Insert new quantity..."
+                  onChange={(e) => setQuantityField(e.target.value)}
+                />
+              </div>
+              <div className="btn-container">
+                <button onClick={performAction}>Save changes</button>
+                <button onClick={hideModal} className="cancel">
+                  Discard changes
+                </button>
+              </div>
             </div>
           </div>
         </>

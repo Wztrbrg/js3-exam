@@ -71,13 +71,13 @@ function UserView() {
                             type="number"
                             name="amount"
                             ref={ref}
-                            className="no-stock"
+                            className="order-input no-stock"
                             min="0"
                             max="20"
                             disabled
                           />
                           <button
-                            className="no-stock"
+                            className="order-btn no-stock"
                             disabled
                             onClick={() =>
                               order(book.title, ref.current.value)
@@ -91,6 +91,7 @@ function UserView() {
                       <>
                         <td>
                           <input
+                            className="order-input"
                             type="number"
                             name="amount"
                             ref={ref}
@@ -98,6 +99,7 @@ function UserView() {
                             max="20"
                           />
                           <button
+                            className="order-btn"
                             onClick={() =>
                               orderHandler(book.title, ref.current.value)
                             }>

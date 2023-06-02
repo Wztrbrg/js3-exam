@@ -34,7 +34,7 @@ function GuestView() {
         </nav>
       </header>
       <main>
-        <table className="book-table">
+        <table className="book-table" data-testid="book-table">
           <thead>
             <tr>
               <th>Title</th>
