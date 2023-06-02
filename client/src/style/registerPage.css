@@ -1,4 +1,4 @@
-.login-wrapper {
+.register-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,7 +25,7 @@
     align-items: center;
 }
 
-.login-page-heading {
+.register-page-heading {
     position: absolute;
     top: 24px;
     left: 24px;
@@ -33,42 +33,42 @@
     font-size: 24px;
 }
 
-.login-form {
+.register-form {
     width: 60%;
 }
 
-.login-heading {
+.register-heading {
     font-size: 36px;
     font-weight: 600;
     color: #21374e;
     margin-bottom: 48px;
 }
 
-.login-field-container {
+.register-field-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
 }
 
-.login-field-container label {
+.register-field-container label {
     font-weight: 600;
     font-size: 18px;
     margin-bottom: 8px;
 }
 
-.login-field-container input {
+.register-field-container input {
     padding-bottom: 8px;
     font-size: 16px;
     border: none;
     border-bottom: 1px solid #232323;
 }
 
-.login-field-container input:focus {
+.register-field-container input:focus {
     outline: none;
 }
 
-.register-para {
+.login-para {
    align-self: flex-start;
    font-size: 16px;
    font-weight: 500;
@@ -76,54 +76,29 @@
 }
 
 
-.login-message {
+.register-message {
     margin-bottom: 16px;
     font-size: 18px;
     font-weight: 500;
 }
 
-.btn-container {
-    display: flex;
-    flex-direction: column;
+.register-btn {
+    background-color: #21374e;
+    color: #fff;
     width: 100%;
-    gap: 16px;
-}
-
-.login-btn,
-.guest-btn {
-    width: 100%;
+    border: none;
     padding: 12px 0;
     border-radius: 200px;
 }
 
-.login-btn {
-    background-color: #21374e;
-    color: #fff;
-    border: none;
-    font-size: 16px;
-}
-
-.login-btn:hover {
+.register-btn:hover {
     cursor: pointer;
     background-color: #4682c1;
     transition: .3s;
 }
 
-.guest-btn {
-    text-align: center;
-    text-decoration: none;
-    border: 2px solid #232323;
-    color: #232323;
-    font-weight: 600;
-}
-
-.guest-btn:hover {
-    box-shadow: 0 10px 10px #a1a1a15d;
-    transition: .3s;
-}
-
 @media (max-width: 900px){
-    .login-wrapper{
+    .register-wrapper{
         justify-content: center;
         padding: 0;
     }
@@ -139,7 +114,6 @@
         width: 70%;
         min-width: 400px;
         height: 70%;
-        min-height: 500px;
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 5px 10px #0000002b;

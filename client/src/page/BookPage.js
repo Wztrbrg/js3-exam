@@ -4,7 +4,13 @@ import AdminView from "../components/AdminView";
 import UserView from "../components/UserView";
 import GuestView from "../components/GuestView";
 import MainHeader from "../components/MainHeader";
+import "../style/bookPage.css";
 
+/*
+bookPage, landningssida efter inloggning
+MainHeader-komponenten kollar vilken roll man har som lagras i userContext
+om man inte är !user d.v.s gäst renderas GuestView osv
+*/
 function BookPage() {
   const { user, setUser } = useContext(UserContext);
   console.log(user);

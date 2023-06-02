@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
+import Search from "./Search";
 
+/*
+Gästvy, renderas på LoginPage beroende på användarroll
+hämtar böcker i useEffect som sedan mappas ut i ett table
+*/
 function GuestView() {
   const [books, setBooks] = useState([]);
 
@@ -24,7 +29,9 @@ function GuestView() {
   return (
     <section className="book-container">
       <header className="book-header">
-        <nav className="book-nav"></nav>
+        <nav className="book-nav">
+          <Search setBooks={(books) => setBooks(books)}></Search>
+        </nav>
       </header>
       <main>
         <table className="book-table">
@@ -41,7 +48,7 @@ function GuestView() {
                 <tr key={index}>
                   <td>{book.title}</td>
                   <td>{book.author}</td>
-                  <td>{book.quantity}</td>
+                  <td>{book.quantity} left</td>
                 </tr>
               );
             })}

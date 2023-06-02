@@ -1,6 +1,12 @@
 import { useState, useEffect, createRef } from "react";
 import { fetchBooks, order } from "../service/bookService";
+import Search from "./Search";
 
+/*
+Användarvy, renderas på LoginPage beroende på användarroll
+hämtar böcker i useEffect som mappas ut i ett table 
+hanterar ordrar med hjälp av tjänsten i bookService
+*/
 function UserView() {
   const [books, setBooks] = useState([]);
 
@@ -35,7 +41,9 @@ function UserView() {
   return (
     <section className="book-container">
       <header className="book-header">
-        <nav className="book-nav"></nav>
+        <nav className="book-nav">
+          <Search setBooks={(books) => setBooks(books)}></Search>
+        </nav>
       </header>
       <main>
         <table className="book-table">
@@ -55,7 +63,7 @@ function UserView() {
                   <tr key={index}>
                     <td>{book.title}</td>
                     <td>{book.author}</td>
-                    <td>{book.quantity}</td>
+                    <td>{book.quantity} left</td>
                     {book.quantity <= 0 && (
                       <>
                         <td>
@@ -68,8 +76,6 @@ function UserView() {
                             max="20"
                             disabled
                           />
-                        </td>
-                        <td>
                           <button
                             className="no-stock"
                             disabled
@@ -91,8 +97,6 @@ function UserView() {
                             min="0"
                             max="20"
                           />
-                        </td>
-                        <td>
                           <button
                             onClick={() =>
                               orderHandler(book.title, ref.current.value)

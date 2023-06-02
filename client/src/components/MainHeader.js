@@ -2,6 +2,13 @@ import { useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import authService from "../service/authService";
 import { UserContext } from "../context/UserContext";
+import "../style/mainHeader.css";
+
+/*
+Header-komponent som renderas efter login/register-skärm,
+här hanteras även själva kontrollen av vilken roll en användare har så att rätt komponent
+renderas på bookPage
+*/
 
 function MainHeader() {
   const { user, setUser } = useContext(UserContext);
@@ -31,7 +38,7 @@ function MainHeader() {
             <p className="user-info-p">
               Browsing as {user.role.toLowerCase()}: {user.username}
             </p>
-            <button className="logout-btn" onClick={logout}>
+            <button className="role-btn" onClick={logout}>
               Sign out
             </button>
           </>
@@ -39,7 +46,7 @@ function MainHeader() {
         {(!user || !user.role) && (
           <>
             <p className="user-info-p">Browsing as guest...</p>
-            <button className="login-btn">
+            <button className="role-btn">
               <Link to={"/"}>Sign in</Link>
             </button>
           </>
