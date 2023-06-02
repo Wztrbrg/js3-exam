@@ -3,7 +3,7 @@ import { fetchBooks, order } from "../service/bookService";
 import Search from "./Search";
 
 /*
-Användarvy, renderas på LoginPage beroende på användarroll
+Användarvy, renderas på BookPage beroende på användarroll
 hämtar böcker i useEffect som mappas ut i ett table 
 hanterar ordrar med hjälp av tjänsten i bookService
 */

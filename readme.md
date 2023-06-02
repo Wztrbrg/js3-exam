@@ -1,12 +1,12 @@
 # Kursprojekt - Bookster
+
 Deadline: 2:a juni 17:00.
 
 I denna uppgift är grupper valfria men får som mest bestå av 3 deltagare och ska registeras via omnius senaste 26:e Maj, detta gäller även för de som väljer att göra uppgiften själva.
 
-
 ## Avgränsningar
 
-- Även om responsive design vore att önska är det väldigt svårt att genomföra för den tänkta designen, därav ingår **inte* responsive design i denna uppgift. 
+- Även om responsive design vore att önska är det väldigt svårt att genomföra för den tänkta designen, därav ingår \*_inte_ responsive design i denna uppgift.
 
 # Beskrivning
 
@@ -16,7 +16,7 @@ I mappen ["wireframes"](wireframes/) så finner du ett par wireframes som dokume
 
 ## Innan du börjar koda!
 
-Då tester är en del av implementeringen så **måste** du börja med att definera vad som kommer att behöva testas. Du gör detta förslagsvis genom att skapa user stories för varje identiferbar tjänst från wireframes:en. User storise:n *bör* du diskutera med klasskamrat, gruppmedlem eller handledare för att undvika att du skapat user stories som är svåra att översätta till tester.
+Då tester är en del av implementeringen så **måste** du börja med att definera vad som kommer att behöva testas. Du gör detta förslagsvis genom att skapa user stories för varje identiferbar tjänst från wireframes:en. User storise:n _bör_ du diskutera med klasskamrat, gruppmedlem eller handledare för att undvika att du skapat user stories som är svåra att översätta till tester.
 
 # Tekniska krav
 
@@ -43,7 +43,8 @@ Du installerar och startar API:et genom att ladda ner och öppna upp server mapp
 API:et använder per default port 3000, men det går att ändra i [src/server.js](server/src/server.js)
 
 ## Endpoints
-Beroende på behörighet så har användare olika tillgång till API:et. 
+
+Beroende på behörighet så har användare olika tillgång till API:et.
 
 - Gäst -> Ej authentiserad.
 - Authentiserad -> Har tillgång till ett JWT access token
@@ -51,6 +52,7 @@ Beroende på behörighet så har användare olika tillgång till API:et.
 <hr>
 
 ### 1. Som gäst-, authentiserad- och administratöranvändare
+
 <details>
   <summary>GET [/library/books](server/src/controller/bookController.js)</summary>
   Responsen är en lista över böckerna och ett verisonsnummer som används vid högre betyg. Se kriterier.
@@ -63,8 +65,9 @@ Beroende på behörighet så har användare olika tillgång till API:et.
   </summary>
   Query paramtern motsvarar en sökt boktitel.
 
-  Responsen är en lista med matchade böcker och ett verisonsnummer som används vid högre betyg. Se kriterier.
-  Vid tom titel så skickas alla böcker tillbaks som svar.
+Responsen är en lista med matchade böcker och ett verisonsnummer som används vid högre betyg. Se kriterier.
+Vid tom titel så skickas alla böcker tillbaks som svar.
+
 </details>
 
 <details>
@@ -74,11 +77,12 @@ Beroende på behörighet så har användare olika tillgång till API:et.
   </summary>
   Username och password motsvarar giltiga inloggningsuppgifter.
 
-  Vid lyckat inlogg så ges ett JWT token tillbaka som är giltigt i 45 minuter.
+Vid lyckat inlogg så ges ett JWT token tillbaka som är giltigt i 45 minuter.
 
-  Kan ge 403 om username eller password inte skickas med.
-  Kan ge 403 om användaren inte anger giltiga uppgifter.
-  Kan ge 403 om användaren inte finns i databasen.
+Kan ge 403 om username eller password inte skickas med.
+Kan ge 403 om användaren inte anger giltiga uppgifter.
+Kan ge 403 om användaren inte finns i databasen.
+
 </details>
 
 <details>
@@ -88,25 +92,27 @@ Beroende på behörighet så har användare olika tillgång till API:et.
   </summary>
   Username är unikt och kan endast förekomma en gång.
 
-  Vid lyckad registering så ges ett 201 statuskod tillbaka för att indikera att kontot är skapat.
+Vid lyckad registering så ges ett 201 statuskod tillbaka för att indikera att kontot är skapat.
 
-  Kan ge 403 om username eller password inte skickas med.
-  Kan ge 403 om användaruppgifterna redan finns.
+Kan ge 403 om username eller password inte skickas med.
+Kan ge 403 om användaruppgifterna redan finns.
+
 </details>
 <hr>
 
 ### 2. Som authentiserad- och administratöranvändare
+
 Samtliga anrop ger:
+
 - 403 om authorized headern inte finns
 - 403 om jwt inte kan verifieras
-- 
-<details>
-  <summary>
-    GET [/library/profile](server/src/controller/profileController.js)
-  </summary>
+- <details>
+    <summary>
+      GET [/library/profile](server/src/controller/profileController.js)
+    </summary>
 
   Hämtar nuvarande profil för inloggad användare, info hämtas från jwt token:et. Här går det även att se köpta produkter
-</details>
+  </details>
 
 <details>
   <summary>
@@ -116,15 +122,17 @@ Samtliga anrop ger:
   "title" är case sensitive.
   "quantity" godtas endast om antal böcker finns i databasen.
 
-  Responsen är en lista över alla böcker och ett verisonsnummer som används vid högre betyg. Se kriterier.
-  
-  Vid avsaknad av paramterar ges 403.
+Responsen är en lista över alla böcker och ett verisonsnummer som används vid högre betyg. Se kriterier.
+
+Vid avsaknad av paramterar ges 403.
+
 </details>
 <hr>
 
 ### 3. Som administratöranvändare
 
 Samtliga anrop ger:
+
 - 401 om användaren inte har behörighet
 
 <details>
@@ -132,7 +140,8 @@ Samtliga anrop ger:
   POST [/admin/books](server/src/controller/adminController.js) { "Author", "Title", "Quantity"}
   </summary>
 
-  Ger statuskod 201 när en bok har lagts till.
+Ger statuskod 201 när en bok har lagts till.
+
 </details>
 
 <details>
@@ -143,7 +152,8 @@ Samtliga anrop ger:
   Current är den nya boken representerad med den data som önskas uppdateras {"?title", "?author", "?quantity"}
   ? = optional.
 
-  Ger statuskod 201 när en bok har uppdaterats.
+Ger statuskod 201 när en bok har uppdaterats.
+
 </details>
 
 <details>
@@ -151,7 +161,8 @@ Samtliga anrop ger:
   DELETE [/admin/books](server/src/controller/adminController.js) { "Title" }
   </summary>
 
-  Ger statuskod 200 när en bok har tagits bort
+Ger statuskod 200 när en bok har tagits bort
+
 </details>
 
 <details>
@@ -159,7 +170,8 @@ Samtliga anrop ger:
   GET [/admin/users]((server/src/controller/adminController.js)
   </summary>
 
-  Ger en lista över alla användare
+Ger en lista över alla användare
+
 </details>
 
 <details>
@@ -169,9 +181,10 @@ Samtliga anrop ger:
   Tilldelar administratör status till användaren med angivet username 
   Username är case sensitive.
 
-  Ger status 200 om användare gick att uppdatera
+Ger status 200 om användare gick att uppdatera
 
-  Ger 403 om användarnamnet inte går att hitta
+Ger 403 om användarnamnet inte går att hitta
+
 </details>
 
 <details>
@@ -180,26 +193,28 @@ Samtliga anrop ger:
   </summary>
   Username är case sensitive
 
-  Ger status 200 om användare gick att ta bort
+Ger status 200 om användare gick att ta bort
 
-  Ger 403 om användarnamnet inte går att hitta
+Ger 403 om användarnamnet inte går att hitta
+
 </details>
 <hr>
 
 ## Bedömning
 
 Innan deadline ska en individuell videopresentation skickas in via omnius. Videon måste uppfylla följande tekniska krav:
+
 1. Studerande måste vara synlig i minst 15 sekunder under videoinspelningen.
 2. Videon får **inte** överstiga 4 minuter (240 sekunder totalt).
 3. Ljudkvaliteten ska vara accepterbar och det ska gå att höra den inspelades röst under hela inspelningen.
-   
+
 Följande ska presenteras under inspelningen.
 
 ### Introduktion (under 1 minut)
 
 - Namn på individ
 - Kort redovisning för hur projektet fördelades under arbetet. Om deltagare jobbade själv ska det redovisas hur framstegen dokumenterades i ex. en trello board eller git commits.
-  
+
 ### API - Redovisning av två tjänster (under 2 minuter)
 
 De tjänster som redovisas måste omfatta två user stories och två tester.
@@ -214,7 +229,8 @@ För VG måste du även redovisa för hur realtidskommunikationen löstes i proj
 
 När du förklarar flödet i koden så ska detta göras utifrån problemet som den löser. Detta bör göras liknande till en user story.
 
-*Case*: Yves mobil anropar http://.../api/cart/ med PUT metoden för att lägga till en ny vara i varukorgen.
+_Case_: Yves mobil anropar http://.../api/cart/ med PUT metoden för att lägga till en ny vara i varukorgen.
+
 1. Först så kollar vi i api:et så att användaren har ett giltigt JWT access token i authorization headern.
 2. "Om access token inte är giltigt så avbryts anropet och felkoden 400 skickas tillbaka för att meddela att JWT token:et saknades"
 3. "Om jwt:en är giltig så fortsätter vi till huvudroutern i api:et".
@@ -224,24 +240,28 @@ När du förklarar flödet i koden så ska detta göras utifrån problemet som d
 6. "Om datan kan sparas så skickas istället statuskod 201 tillbaka för att meddela att datan har lagts till i databasen."
 
 ## Inlämning
+
 Via omnius skicka in följande
+
 - Videoinspelning
 - Länk till github repo med fullständig källkod
 
 ## Betygskriterier
+
 För ett högre betyg krävs det att lämplig metod tillämpas för att få realtids uppdateringar från API:et. **Observera**, API-koden får ej modifieras utan att först konsultera ansvarig lärare. Vidare så ligger koden **inte** under open source distrubition så om du vill vidarutveckla på koden erhålls tillstånd från publiceraren av koden.
 
 ### Godkänt
+
 För betyget godkänt så ska de tekniska kraven i uppgiften uppfyllas och den implementerad designen ska till större del motsvara de wireframes:en som ingick i uppgiften.
 
 ### Väl godkänt
+
 För betyget väl godkänt så ska realtidsdialog skapas och erhållas med REST API:et. Då någon data uppdateras så ska även frontended reflektera uppdateringen. Använd verisonsnumret som följer med i anropen för att "upptäcka" om innehållet är nytt. Data som inte har uppdateras bör ej skriva över befintlig data.
 
 ## Återkoppling
+
 Sker via ominus senast 3 veckor efter avslutad kurs i samband med kursbetyget.
 
---- 
+---
+
 <small>Varför inte börja med en kopp kaffe? </small> :coffee:
-
-
-

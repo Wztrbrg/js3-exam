@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import Search from "./Search";
 
 /*
-Adminvy, renderas på LoginPage beroende på användarroll
+Adminvy, renderas på BookPage beroende på användarroll
 hämtar både users och böcker i useEffect för att mappa ut båda i varsit table,
 kan byta mellan user/book-vy 
 använder Modal-komponenten för att hantera ändringar av böcker/användare

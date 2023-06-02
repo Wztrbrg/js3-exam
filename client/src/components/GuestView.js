@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Search from "./Search";
 
 /*
-Gästvy, renderas på LoginPage beroende på användarroll
+Gästvy, renderas på BookPage beroende på användarroll
 hämtar böcker i useEffect som sedan mappas ut i ett table
 */
 function GuestView() {
