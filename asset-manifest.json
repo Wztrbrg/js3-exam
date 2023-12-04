@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/js3-exam/static/css/main.cb0a215f.css",
-    "main.js": "/js3-exam/static/js/main.9f8a5785.js",
+    "main.js": "/js3-exam/static/js/main.9aaeecd9.js",
     "static/media/login-bg.jpg": "/js3-exam/static/media/login-bg.c769a075076822f0030c.jpg",
     "index.html": "/js3-exam/index.html",
     "main.cb0a215f.css.map": "/js3-exam/static/css/main.cb0a215f.css.map",
-    "main.9f8a5785.js.map": "/js3-exam/static/js/main.9f8a5785.js.map"
+    "main.9aaeecd9.js.map": "/js3-exam/static/js/main.9aaeecd9.js.map"
   },
   "entrypoints": [
     "static/css/main.cb0a215f.css",
-    "static/js/main.9f8a5785.js"
+    "static/js/main.9aaeecd9.js"
   ]
 }
