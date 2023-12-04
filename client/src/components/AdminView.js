@@ -27,11 +27,11 @@ function AdminView() {
       };
 
       let bookResult = await fetch(
-        "http://127.0.0.1:3000/library/books",
+        "https://book-store-nwa5.onrender.com/library/books",
         options
       );
       let userResult = await fetch(
-        "http://127.0.0.1:3000/admin/users",
+        "https://book-store-nwa5.onrender.com/admin/users",
         options
       );
       if (bookResult.status === 200 && userResult.status === 200) {
@@ -55,11 +55,11 @@ function AdminView() {
       };
 
       let bookResult = await fetch(
-        "http://127.0.0.1:3000/library/books",
+        "https://book-store-nwa5.onrender.com/library/books",
         options
       );
       let userResult = await fetch(
-        "http://127.0.0.1:3000/admin/users",
+        "https://book-store-nwa5.onrender.com/admin/users",
         options
       );
       if (bookResult.status === 200 && userResult.status === 200) {

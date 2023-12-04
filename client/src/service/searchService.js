@@ -8,7 +8,7 @@ async function search(query) {
   };
 
   let result = await fetch(
-    "http://127.0.0.1:3000/library/books/search?q=" + query,
+    "https://book-store-nwa5.onrender.com/library/books/search?q=" + query,
     options
   );
   if (result.status === 200) {

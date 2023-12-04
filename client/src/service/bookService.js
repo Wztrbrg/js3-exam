@@ -6,7 +6,10 @@ async function fetchBooks() {
     },
   };
 
-  let result = await fetch("http://127.0.0.1:3000/library/books", options);
+  let result = await fetch(
+    "https://book-store-nwa5.onrender.com/library/books",
+    options
+  );
   if (result.status === 200) {
     result = await result.json();
     return { result };
@@ -26,7 +29,10 @@ async function order(book, amount) {
     }),
   };
 
-  let result = await fetch("http://127.0.0.1:3000/library/user/books", options);
+  let result = await fetch(
+    "https://book-store-nwa5.onrender.com/library/user/books",
+    options
+  );
 }
 
 export { fetchBooks, order };

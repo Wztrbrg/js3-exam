@@ -12,7 +12,10 @@ async function registerHandler(e, credentials) {
     }),
   };
 
-  const res = await fetch("http://127.0.0.1:3000/auth/register", options);
+  const res = await fetch(
+    "https://book-store-nwa5.onrender.com/auth/register",
+    options
+  );
 
   if (res.status === 201) {
     return true;
@@ -35,7 +38,10 @@ async function loginHandler(e, credentials) {
     }),
   };
 
-  const res = await fetch("http://127.0.0.1:3000/auth/login", options);
+  const res = await fetch(
+    "https://book-store-nwa5.onrender.com/auth/login",
+    options
+  );
 
   if (res.status === 200) {
     const data = await res.json();
@@ -54,7 +60,10 @@ async function fetchUser() {
     },
   };
 
-  let result = await fetch("http://127.0.0.1:3000/library/profile", options);
+  let result = await fetch(
+    "https://book-store-nwa5.onrender.com/library/profile",
+    options
+  );
 
   if (result.status === 200) {
     result = await result.json();

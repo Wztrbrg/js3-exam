@@ -8,7 +8,10 @@ async function addBook(newBook) {
     body: JSON.stringify(newBook),
   };
 
-  let result = await fetch("http://127.0.0.1:3000/admin/books", options);
+  let result = await fetch(
+    "https://book-store-nwa5.onrender.com/admin/books",
+    options
+  );
   if (result.status === 200) {
     result = await result.json();
     return result;
@@ -27,7 +30,10 @@ async function promoteUser(query) {
     }),
   };
 
-  let result = await fetch("http://127.0.0.1:3000/admin/users", options);
+  let result = await fetch(
+    "https://book-store-nwa5.onrender.com/admin/users",
+    options
+  );
   if (result.status === 200) {
     result = await result.json();
     return result;
@@ -49,7 +55,10 @@ async function editBook(query, newBook) {
     }),
   };
 
-  let result = await fetch("http://127.0.0.1:3000/admin/books", options);
+  let result = await fetch(
+    "https://book-store-nwa5.onrender.com/admin/books",
+    options
+  );
   if (result.status === 200) {
     result = await result.json();
     return result;
@@ -68,7 +77,10 @@ async function deleteBook(query) {
     }),
   };
 
-  let result = await fetch("http://127.0.0.1:3000/admin/books", options);
+  let result = await fetch(
+    "https://book-store-nwa5.onrender.com/admin/books",
+    options
+  );
   if (result.status === 200) {
     result = await result.json();
     return result;
@@ -87,7 +99,10 @@ async function deleteUser(query) {
     }),
   };
 
-  let result = await fetch("http://127.0.0.1:3000/admin/users", options);
+  let result = await fetch(
+    "https://book-store-nwa5.onrender.com/admin/users",
+    options
+  );
   if (result.status === 200) {
     result = await result.json();
     return result;
