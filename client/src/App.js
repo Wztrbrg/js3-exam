@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, Switch } from "react-router-dom";
 import LoginPage from "./page/LoginPage";
 import RegisterPage from "./page/RegisterPage";
 import BookPage from "./page/BookPage";
@@ -11,15 +11,15 @@ function App() {
 
   return (
     <div className="wrapper">
-      <BrowserRouter>
+      <HashRouter>
         <UserContext.Provider value={value}>
           <Routes>
-            <Route index element={<LoginPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="register" element={<RegisterPage />} />
             <Route path="books" element={<BookPage />} />
           </Routes>
         </UserContext.Provider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
